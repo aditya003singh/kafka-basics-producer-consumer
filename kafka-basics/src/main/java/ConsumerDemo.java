@@ -14,7 +14,7 @@ public class ConsumerDemo {
 
     private static final Logger log = LoggerFactory.getLogger(ConsumerDemo.class.getSimpleName());
 
-    public static void main(String args[]){
+    public static void main(String[] args){
 
         String groupId = "my-java-application";
         String topic = "demo_java";
@@ -45,7 +45,7 @@ public class ConsumerDemo {
             log.info("Polling");
 
             // If kafka does not have any message then wait for 1 second
-            ConsumerRecords<String, String> records = consumer.poll(Duration.ofMillis(1000));
+            ConsumerRecords<String, String> records = consumer.poll(Duration.ofMillis(100));
 
             for (ConsumerRecord<String, String> record : records){
                 log.info("Key: " + record.key() + ", Value: " + record.value());
